@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include "Kanto/Application.h"
-//Entrypoint
+#include "Kanto/Log.h"
+// -Entrypoint-----
 #include "Kanto/Entrypoint.h"
-//----------
+// ----------------

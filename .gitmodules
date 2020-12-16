@@ -1,0 +1,3 @@
+[submodule "Kanto/vendor/spdlog"]
+	path = Kanto/vendor/spdlog
+	url = https://github.com/gabime/spdlog

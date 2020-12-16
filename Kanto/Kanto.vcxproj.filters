@@ -27,9 +27,15 @@
     <ClInclude Include="src\Kanto\Entrypoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Kanto\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Kanto\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Kanto\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
