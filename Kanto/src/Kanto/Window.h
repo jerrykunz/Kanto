@@ -1,8 +1,4 @@
 #pragma once
-
-#include <sstream>
-
-//#include "Kanto/Core/Base.h"
 #include "Kanto/Events/Event.h"
 
 namespace Kanto {
