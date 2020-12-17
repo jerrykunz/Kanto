@@ -4,6 +4,9 @@
     <Filter Include="Kanto">
       <UniqueIdentifier>{0242830D-6E56-ABBE-37D8-4E1EA3ABA7EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Kanto\Events">
+      <UniqueIdentifier>{A657FEF8-92BA-8D9D-3B40-C65327825920}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Kanto.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Kanto\Entrypoint.h">
       <Filter>Kanto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kanto\Events\ApplicationEvent.h">
+      <Filter>Kanto\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kanto\Events\Event.h">
+      <Filter>Kanto\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kanto\Events\KeyEvent.h">
+      <Filter>Kanto\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kanto\Events\MouseEvent.h">
+      <Filter>Kanto\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Kanto\Log.h">
       <Filter>Kanto</Filter>

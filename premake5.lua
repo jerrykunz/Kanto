@@ -28,6 +28,7 @@ workspace "Kanto"
 
 		includedirs
 		{
+			"Kanto/src",
 			"%{prj.name}/vendor/spdlog/include"
 		}
 

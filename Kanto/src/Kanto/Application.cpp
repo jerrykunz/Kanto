@@ -1,4 +1,6 @@
 #include "Application.h"
+#include "Kanto/Events/ApplicationEvent.h"
+#include "Kanto/Log.h"
 
 namespace Kanto
 {
@@ -13,6 +15,8 @@ namespace Kanto
 
 	void Application::Run()
 	{
+		WindowResizeEvent e(1280, 720);
+		KN_TRACE(e);
 		while (true);
 	}
 
