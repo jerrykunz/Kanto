@@ -1,6 +1,7 @@
 #pragma once
-#include "Core.h"
-#include "Kanto/Events/Event.h"
+#include <Kanto/Core.h>
+#include <Kanto/Events/Event.h>
+#include "Window.h"
 
 namespace Kanto
 {
@@ -10,6 +11,11 @@ namespace Kanto
 		Application();
 		virtual ~Application();
 		void Run();
+		
+	private:
+
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
 	};
 
 	//to be defined in client

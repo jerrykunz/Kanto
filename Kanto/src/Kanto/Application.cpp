@@ -1,11 +1,15 @@
-#include "Application.h"
+#include "knpch.h"
+#include "Kanto/Application.h"
 #include "Kanto/Events/ApplicationEvent.h"
 #include "Kanto/Log.h"
+
+#include "GLFW/glfw3.h"
 
 namespace Kanto
 {
 	Application::Application()
 	{
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -15,9 +19,12 @@ namespace Kanto
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1280, 720);
-		KN_TRACE(e);
-		while (true);
+		while (m_Running)
+		{
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			m_Window->OnUpdate();
+		}
 	}
 
 }

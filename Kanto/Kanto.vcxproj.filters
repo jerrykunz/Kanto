@@ -34,6 +34,9 @@
     <ClInclude Include="src\Kanto\Log.h">
       <Filter>Kanto</Filter>
     </ClInclude>
+    <ClInclude Include="src\knpch.h" />
+    <ClInclude Include="src\Kanto\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Kanto\Application.cpp">
@@ -42,5 +45,7 @@
     <ClCompile Include="src\Kanto\Log.cpp">
       <Filter>Kanto</Filter>
     </ClCompile>
+    <ClCompile Include="src\knpch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

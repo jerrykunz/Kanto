@@ -1,9 +1,6 @@
 #pragma once
 #include <functional>
 
-//#include "Kanto/Debug/Instrumentor.h"
-//#include "Kanto/Core/Base.h"
-
 namespace Kanto {
 
 	// Events in Kanto are currently blocking, meaning when an event occurs it

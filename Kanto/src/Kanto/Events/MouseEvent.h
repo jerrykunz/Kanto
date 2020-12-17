@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Kanto/Events/Event.h"
-//#include "Hazel/Core/MouseCodes.h"
-#include <sstream>
 
 namespace Kanto {
 

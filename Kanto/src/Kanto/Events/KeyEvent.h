@@ -2,8 +2,6 @@
 
 #include "Kanto/Events/Event.h"
 #include "Kanto/Core.h"
-#include <sstream>
-
 
 namespace Kanto {
 

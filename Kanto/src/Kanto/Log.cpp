@@ -1,3 +1,4 @@
+#include "knpch.h"
 #include "Log.h"
 
 namespace Kanto

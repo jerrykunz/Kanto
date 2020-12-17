@@ -11,7 +11,7 @@ int main(int argc, char** argv)
 
 	KN_WARN("Initialized log!");
 	int a = 5;
-	KN_CLIENT_INFO("number is {0}", a);
+	KN_INFO("number is {0}", a);
 
 	auto app = Kanto::CreateApplication();
 	app->Run();

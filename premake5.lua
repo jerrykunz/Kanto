@@ -10,7 +10,15 @@ workspace "Kanto"
 
 	outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+	-- needs to be before includedir crap
 	startproject "Sandbox"
+
+	-- Include directories relative to root folder (solution directory)
+	-- this is a struct where you can add other dependencies than glfw
+	IncludeDir = {}
+	IncludeDir["GLFW"] = "Kanto/vendor/GLFW/include"
+	--this somehow links the glfw premake5.lua to this file, kind of like #include
+	include "Kanto/vendor/GLFW"
 
 	project "Kanto"
 		location "Kanto"
@@ -19,6 +27,9 @@ workspace "Kanto"
 
 		targetdir ("bin/" ..outputdir .. "/%{prj.name}")
 		objdir ("obj/" ..outputdir .. "/%{prj.name}")
+
+		pchheader "knpch.h"
+		pchsource "Kanto/src/knpch.cpp"
 
 		files
 		{
@@ -29,7 +40,14 @@ workspace "Kanto"
 		includedirs
 		{
 			"Kanto/src",
-			"%{prj.name}/vendor/spdlog/include"
+			"%{prj.name}/vendor/spdlog/include",
+			"%{IncludeDir.GLFW}"
+		}
+
+		links
+		{
+			"GLFW",
+			"opengl32.lib"
 		}
 
 		filter "system:windows"
