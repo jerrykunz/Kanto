@@ -1,5 +1,6 @@
 #pragma once
 #include <Kanto/Core.h>
+#include "Kanto/LayerStack.h"
 #include <Kanto/Events/Event.h>
 #include "Kanto/Events/ApplicationEvent.h"
 #include "Window.h"
@@ -14,11 +15,21 @@ namespace Kanto
 		void Run();
 		void OnEvent(Event& e);
 		
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
+
+		inline Window& GetWindow() { return *m_Window; }
+
+		inline static Application& Get() { return *s_Instance; }
+
 	private:
 		bool OnWindowClosed(WindowCloseEvent& x);
 
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+		LayerStack m_LayerStack; 
+
+		static Application* s_Instance;
 	};
 
 	//to be defined in client

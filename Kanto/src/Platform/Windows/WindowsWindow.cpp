@@ -5,6 +5,8 @@
 #include "Kanto/Events/MouseEvent.h"
 #include "Kanto/Events/KeyEvent.h"
 
+#include "glad/glad.h"
+
 namespace Kanto {
 
 	static bool s_GLFWInitialized = false;
@@ -40,15 +42,19 @@ namespace Kanto {
 		if (!s_GLFWInitialized)
 		{
 			int success = glfwInit();
-			KN_CORE_ASSERT(success, "Could not initialize GLFW!");
+			KN_CORE_ASSERT(success, "Could not initialize GLFW!");			
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		KN_CORE_ASSERT(status, "Could not initialize Glad!");
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
+
+		
 
 		//Set GLFW callbacks
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
@@ -122,6 +128,14 @@ namespace Kanto {
 				break;
 			}
 			}
+		});
+
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+			KeyTypedEvent event(keycode);
+			data.EventCallback(event);
 		});
 
 		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset)

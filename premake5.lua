@@ -17,8 +17,13 @@ workspace "Kanto"
 	-- this is a struct where you can add other dependencies than glfw
 	IncludeDir = {}
 	IncludeDir["GLFW"] = "Kanto/vendor/GLFW/include"
+	IncludeDir["Glad"] = "Kanto/vendor/Glad/include"
+	IncludeDir["ImGui"] = "Kanto/vendor/ImGui"
+
 	--this somehow links the glfw premake5.lua to this file, kind of like #include
 	include "Kanto/vendor/GLFW"
+	include "Kanto/vendor/Glad"
+	include "Kanto/vendor/ImGui"
 
 	project "Kanto"
 		location "Kanto"
@@ -41,12 +46,16 @@ workspace "Kanto"
 		{
 			"Kanto/src",
 			"%{prj.name}/vendor/spdlog/include",
-			"%{IncludeDir.GLFW}"
+			"%{IncludeDir.GLFW}",
+			"%{IncludeDir.Glad}",
+			"%{IncludeDir.ImGui}"
 		}
 
 		links
 		{
 			"GLFW",
+			"Glad",
+			"ImGui",
 			"opengl32.lib"
 		}
 
@@ -58,7 +67,8 @@ workspace "Kanto"
 			defines
 			{
 				"KN_PLATFORM_WINDOWS",
-				"KN_BUILD_DLL"
+				"KN_BUILD_DLL",
+				"GLFW_INCLUDE_NONE" -- so we don't include any OPENGL headers while we initialize glfw, so glad works better
 			}
 
 			postbuildcommands
@@ -66,16 +76,22 @@ workspace "Kanto"
 				("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 			}
 
-		filter "configurations.Debug"
+		filter "configurations:Debug"
 			defines "KN_DEBUG"
+			buildoptions "/MDd" -- issue remains
+			--runtime "Debug"
 			symbols "On"
 
-		filter "configurations.Release"
-			defines "KN_DEBUG"
+		filter "configurations:Release"
+			defines "KN_RELEASE"
+			buildoptions "/MD"
+			--runtime "Release"
 			optimize "On"		
 
-		filter "configurations.Release"
+		filter "configurations:Dist"
 			defines "KN_DIST"
+			buildoptions "/MD"
+			--runtime "Release"
 			optimize "On"
 
 	project "Sandbox"
@@ -113,14 +129,20 @@ workspace "Kanto"
 				"KN_PLATFORM_WINDOWS"
 			}
 
-		filter "configurations.Debug"
+		filter "configurations:Debug"
 			defines "KN_DEBUG"
+			buildoptions "/MDd"
+			--runtime "Debug"
 			symbols "On"
 
-		filter "configurations.Release"
-			defines "KN_DEBUG"
+		filter "configurations:Release"
+			defines "KN_RELEASE"
+			buildoptions "/MD"
+			--runtime "Release"
 			optimize "On"		
 
-		filter "configurations.Release"
+		filter "configurations:Dist"
 			defines "KN_DIST"
+			buildoptions "/MD"
+			--runtime "Release"
 			optimize "On"

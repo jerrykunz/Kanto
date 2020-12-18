@@ -7,8 +7,7 @@ namespace Kanto {
 
 	class WindowResizeEvent : public Event
 	{
-		public:
-
+	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
 			: m_Width(width), m_Height(height) {}
 
@@ -25,7 +24,7 @@ namespace Kanto {
 		EVENT_CLASS_TYPE(WindowResize)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 
-		private:
+	private:
 
 		unsigned int m_Width, m_Height;
 	};

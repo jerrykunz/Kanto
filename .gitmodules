@@ -4,3 +4,6 @@
 [submodule "Kanto/vendor/GLFW"]
 	path = Kanto/vendor/GLFW
 	url = https://github.com/jerrykunz/glfw.git
+[submodule "Kanto/vendor/ImGui"]
+	path = Kanto/vendor/ImGui
+	url = https://github.com/jerrykunz/imgui.git

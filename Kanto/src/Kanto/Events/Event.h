@@ -64,9 +64,9 @@ namespace Kanto {
 		template<typename T, typename F>
 		bool Dispatch(const F& func)
 		{
-			if (m_Event.GetEventType() == T::GetStaticType())
+			if (m_Event.GetEventType() == T::GetStaticType()) //check if event type is correct
 			{
-				m_Event.Handled |= func(static_cast<T&>(m_Event));
+				m_Event.Handled |= func(static_cast<T&>(m_Event)); //run the function, OR it with handled
 				return true;
 			}
 			return false;
