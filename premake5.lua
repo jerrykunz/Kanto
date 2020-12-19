@@ -19,13 +19,18 @@ workspace "Kanto"
 	IncludeDir["GLFW"] = "Kanto/vendor/GLFW/include"
 	IncludeDir["Glad"] = "Kanto/vendor/Glad/include"
 	IncludeDir["ImGui"] = "Kanto/vendor/ImGui"
+	IncludeDir["glm"] = "Kanto/vendor/glm"
 
 	--this somehow links the glfw premake5.lua to this file, kind of like #include
+	--group = folder in visual studio
 	group "Dependencies"	
 		include "Kanto/vendor/GLFW"
 		include "Kanto/vendor/Glad"
 		include "Kanto/vendor/ImGui"
+		--include "Kanto/vendor/glm/glm" -- not a project, header only so not included
 	group ""
+
+
 
 	project "Kanto"
 		location "Kanto"
@@ -42,7 +47,9 @@ workspace "Kanto"
 		files
 		{
 			"%{prj.name}/src/**.h",
-			"%{prj.name}/src/**.cpp"
+			"%{prj.name}/src/**.cpp",
+			"%{prj.name}/vendor/glm/glm/**.hpp", --not really needed as this is a header only lib, but let's stay consistent
+			"%{prj.name}/vendor/glm/glm/**.inl" --inline and template stuff here
 		}
 
 		includedirs
@@ -51,7 +58,8 @@ workspace "Kanto"
 			"%{prj.name}/vendor/spdlog/include",
 			"%{IncludeDir.GLFW}",
 			"%{IncludeDir.Glad}",
-			"%{IncludeDir.ImGui}"
+			"%{IncludeDir.ImGui}",
+			"%{IncludeDir.glm}"
 		}
 
 		links
@@ -97,6 +105,8 @@ workspace "Kanto"
 			runtime "Release"
 			optimize "On"
 
+
+
 	project "Sandbox"
 		location "Sandbox"
 		kind "ConsoleApp"
@@ -115,7 +125,8 @@ workspace "Kanto"
 		includedirs
 		{
 			"Kanto/vendor/spdlog/include",
-			"Kanto/src"
+			"Kanto/src",
+			"%{IncludeDir.glm}"
 		}
 
 		links
