@@ -126,6 +126,7 @@ workspace "Kanto"
 		{
 			"Kanto/vendor/spdlog/include",
 			"Kanto/src",
+			"Kanto/vendor",
 			"%{IncludeDir.glm}"
 		}
 

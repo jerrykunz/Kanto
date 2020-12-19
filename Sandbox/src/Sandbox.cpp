@@ -1,4 +1,6 @@
 #include <Kanto.h>
+#include  "ImGui/imgui.h"
+
 
 //test
 #include <glm/vec3.hpp> // glm::vec3
@@ -27,7 +29,12 @@ public:
 		auto cam = camera(1.0f, { 1.0f, 2.0f });
 	}
 
-	
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
+	}
 
 	void OnUpdate() override
 	{
@@ -54,7 +61,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Kanto::ImGuiLayer());
+		//PushOverlay(new Kanto::ImGuiLayer());
 	}	
 
 	~Sandbox()
