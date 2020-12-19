@@ -3,6 +3,7 @@
 #include "Kanto/LayerStack.h"
 #include <Kanto/Events/Event.h>
 #include "Kanto/Events/ApplicationEvent.h"
+#include "Kanto/ImGui/ImGuiLayer.h"
 #include "Window.h"
 
 namespace Kanto
@@ -26,6 +27,7 @@ namespace Kanto
 		bool OnWindowClosed(WindowCloseEvent& x);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack; 
 

@@ -165,7 +165,6 @@
     <ClInclude Include="src\Kanto\Log.h" />
     <ClInclude Include="src\Kanto\MouseButtonCodes.h" />
     <ClInclude Include="src\Kanto\Window.h" />
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\knpch.h" />
@@ -585,11 +584,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Kanto\Application.cpp" />
+    <ClCompile Include="src\Kanto\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Kanto\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Kanto\Layer.cpp" />
     <ClCompile Include="src\Kanto\LayerStack.cpp" />
     <ClCompile Include="src\Kanto\Log.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\knpch.cpp">
