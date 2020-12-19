@@ -21,14 +21,17 @@ workspace "Kanto"
 	IncludeDir["ImGui"] = "Kanto/vendor/ImGui"
 
 	--this somehow links the glfw premake5.lua to this file, kind of like #include
-	include "Kanto/vendor/GLFW"
-	include "Kanto/vendor/Glad"
-	include "Kanto/vendor/ImGui"
+	group "Dependencies"	
+		include "Kanto/vendor/GLFW"
+		include "Kanto/vendor/Glad"
+		include "Kanto/vendor/ImGui"
+	group ""
 
 	project "Kanto"
 		location "Kanto"
 		kind "SharedLib"
 		language "C++"
+		staticruntime "Off"		--On for "Multithreaded" off for "MultithreadedDLL" or MT/MD choice. 'runtime "Debug"/"Release"' sets the d flag MTd/MDd
 
 		targetdir ("bin/" ..outputdir .. "/%{prj.name}")
 		objdir ("obj/" ..outputdir .. "/%{prj.name}")
@@ -60,8 +63,7 @@ workspace "Kanto"
 		}
 
 		filter "system:windows"
-			cppdialect "C++17"
-			staticruntime "On"
+			cppdialect "C++17"			
 			systemversion "latest"
 
 			defines
@@ -73,31 +75,33 @@ workspace "Kanto"
 
 			postbuildcommands
 			{
-				("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+				--("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+				("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"") --fixes fail on first time build
 			}
 
 		filter "configurations:Debug"
 			defines "KN_DEBUG"
-			buildoptions "/MDd" -- issue remains
-			--runtime "Debug"
+			--buildoptions "/MDd" -- OLD
+			runtime "Debug" --sets the debug flag: MT/MTd or MD/MDd, depending on staticruntime
 			symbols "On"
 
 		filter "configurations:Release"
 			defines "KN_RELEASE"
-			buildoptions "/MD"
-			--runtime "Release"
+			--buildoptions "/MD" --OLD
+			runtime "Release"
 			optimize "On"		
 
 		filter "configurations:Dist"
 			defines "KN_DIST"
-			buildoptions "/MD"
-			--runtime "Release"
+			--buildoptions "/MD" --OLD
+			runtime "Release"
 			optimize "On"
 
 	project "Sandbox"
 		location "Sandbox"
 		kind "ConsoleApp"
 		language "C++"
+		staticruntime "Off"
 
 		targetdir ("bin/" ..outputdir .. "/%{prj.name}")
 		objdir ("obj/" ..outputdir .. "/%{prj.name}")
@@ -120,8 +124,7 @@ workspace "Kanto"
 		}
 
 		filter "system:windows"
-			cppdialect "C++17"
-			staticruntime "On"
+			cppdialect "C++17"			
 			systemversion "latest"
 
 			defines
@@ -131,18 +134,18 @@ workspace "Kanto"
 
 		filter "configurations:Debug"
 			defines "KN_DEBUG"
-			buildoptions "/MDd"
-			--runtime "Debug"
+			--buildoptions "/MDd"
+			runtime "Debug"
 			symbols "On"
 
 		filter "configurations:Release"
 			defines "KN_RELEASE"
-			buildoptions "/MD"
-			--runtime "Release"
+			--buildoptions "/MD"
+			runtime "Release"
 			optimize "On"		
 
 		filter "configurations:Dist"
 			defines "KN_DIST"
-			buildoptions "/MD"
-			--runtime "Release"
+			--buildoptions "/MD"
+			runtime "Release"
 			optimize "On"

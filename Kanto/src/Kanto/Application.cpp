@@ -1,6 +1,7 @@
 #include "knpch.h"
 #include "Kanto/Application.h"
 #include "Kanto/Events/ApplicationEvent.h"
+#include "Input.h"
 #include "Kanto/Log.h"
 
 #include "glad/glad.h"

@@ -10,12 +10,19 @@ public:
 
 	void OnUpdate() override
 	{
-		KN_INFO("ExampleLayer::Update");
+		if (Kanto::Input::IsKeyPressed(KN_KEY_TAB))
+			KN_TRACE("Tab key is pressed (poll)!");
 	}
 
 	void OnEvent(Kanto::Event& event) override
 	{
-		KN_TRACE("{0}", event);
+		if (event.GetEventType() == Kanto::EventType::KeyPressed)
+		{
+			Kanto::KeyPressedEvent& e = (Kanto::KeyPressedEvent&)event;
+			if (e.GetKeyCode() == KN_KEY_TAB)
+				KN_TRACE("Tab key is pressed (event)!");
+			KN_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 
