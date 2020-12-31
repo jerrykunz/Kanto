@@ -34,9 +34,11 @@ workspace "Kanto"
 
 	project "Kanto"
 		location "Kanto"
-		kind "SharedLib"
+		kind "StaticLib"
 		language "C++"
-		staticruntime "Off"		--On for "Multithreaded" off for "MultithreadedDLL" or MT/MD choice. 'runtime "Debug"/"Release"' sets the d flag MTd/MDd
+		cppdialect "C++17"	
+		staticruntime "On"		--On for "Multithreaded" off for "MultithreadedDLL" or MT/MD choice. 'runtime "Debug"/"Release"' sets the d flag MTd/MDd
+		
 
 		targetdir ("bin/" ..outputdir .. "/%{prj.name}")
 		objdir ("obj/" ..outputdir .. "/%{prj.name}")
@@ -70,8 +72,12 @@ workspace "Kanto"
 			"opengl32.lib"
 		}
 
-		filter "system:windows"
-			cppdialect "C++17"			
+		defines
+		{
+			"_CRT_SECURE_NO_WARNINGS"
+		}
+
+		filter "system:windows"		
 			systemversion "latest"
 
 			defines
@@ -81,11 +87,12 @@ workspace "Kanto"
 				"GLFW_INCLUDE_NONE" -- so we don't include any OPENGL headers while we initialize glfw, so glad works better
 			}
 
-			postbuildcommands
-			{
+			--no longer necessary as we ditched the dll for static runtime because of performance and warnings on compile
+			--postbuildcommands
+			--{
 				--("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-				("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"") --fixes fail on first time build
-			}
+				--("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"") --fixes fail on first time build
+			--}
 
 		filter "configurations:Debug"
 			defines "KN_DEBUG"
@@ -111,7 +118,8 @@ workspace "Kanto"
 		location "Sandbox"
 		kind "ConsoleApp"
 		language "C++"
-		staticruntime "Off"
+		cppdialect "C++17"	
+		staticruntime "On"
 
 		targetdir ("bin/" ..outputdir .. "/%{prj.name}")
 		objdir ("obj/" ..outputdir .. "/%{prj.name}")
@@ -135,8 +143,7 @@ workspace "Kanto"
 			"Kanto"
 		}
 
-		filter "system:windows"
-			cppdialect "C++17"			
+		filter "system:windows"		
 			systemversion "latest"
 
 			defines

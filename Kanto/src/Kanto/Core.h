@@ -1,10 +1,14 @@
 #pragma once
 
 #ifdef KN_PLATFORM_WINDOWS
-	#ifdef KN_BUILD_DLL
-		#define KANTO_API __declspec(dllexport)
+	#if HZ_DYNAMIC_LINK
+		#ifdef KN_BUILD_DLL
+			#define KANTO_API __declspec(dllexport)
+		#else
+			#define KANTO_API __declspec(dllimport)
+		#endif
 	#else
-		#define KANTO_API __declspec(dllimport)
+		#define KANTO_API
 	#endif
 #else
 	#error Kanto only supports windows

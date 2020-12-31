@@ -32,13 +32,13 @@ namespace Kanto
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
-		layer->OnAttach();
+		//layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
-		layer->OnAttach();
+		//layer->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)
@@ -49,7 +49,7 @@ namespace Kanto
 
 		KN_CORE_TRACE("{0}", e);
 
-		//go through all the layers until it is set as handled. note that now it does one round even if the event is handled from the beginning
+		//go through all the layers from front to back until it is set as handled. note that now it does one round even if the event is handled from the beginning
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{			
 			(*--it)->OnEvent(e); 
