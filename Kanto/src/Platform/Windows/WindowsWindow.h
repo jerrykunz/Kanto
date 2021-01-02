@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Kanto/Window.h"
-//#include "Kanto/Renderer/GraphicsContext.h"
+#include "Kanto/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -29,6 +29,7 @@ namespace Kanto {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 		//Scope<GraphicsContext> m_Context;
 
 		struct WindowData

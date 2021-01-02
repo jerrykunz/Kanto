@@ -5,3 +5,5 @@ obj/
 
 # Files
 *.user
+*.sln
+*.vcxproj*
