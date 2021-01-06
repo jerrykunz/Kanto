@@ -5,13 +5,11 @@
 #include "Kanto/Events/ApplicationEvent.h"
 #include "Kanto/ImGui/ImGuiLayer.h"
 #include "Window.h"
-#include "Kanto/Renderer/Shader.h"
-#include "Kanto/Renderer/Buffer.h"
-#include "Kanto/Renderer/VertexArray.h"
+
 
 namespace Kanto
 {
-	class KANTO_API Application
+	class Application
 	{
 	public:
 		Application();
@@ -34,12 +32,7 @@ namespace Kanto
 		bool m_Running = true;
 		LayerStack m_LayerStack; 
 
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
+		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
 	};
