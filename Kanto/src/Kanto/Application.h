@@ -6,7 +6,8 @@
 #include "Kanto/ImGui/ImGuiLayer.h"
 #include "Window.h"
 #include "Kanto/Renderer/Shader.h"
-#include "kANTO/Renderer/Buffer.h"
+#include "Kanto/Renderer/Buffer.h"
+#include "Kanto/Renderer/VertexArray.h"
 
 namespace Kanto
 {
@@ -33,10 +34,11 @@ namespace Kanto
 		bool m_Running = true;
 		LayerStack m_LayerStack; 
 
-		unsigned int m_VertexArray;
-		std::unique_ptr<VertexBuffer> m_VertexBuffer;
-		std::unique_ptr<IndexBuffer> m_IndexBuffer;
-		std::unique_ptr<Shader> m_Shader;
+		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<VertexArray> m_VertexArray;
+
+		std::shared_ptr<Shader> m_BlueShader;
+		std::shared_ptr<VertexArray> m_SquareVA;
 
 	private:
 		static Application* s_Instance;
