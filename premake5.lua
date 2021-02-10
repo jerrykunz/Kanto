@@ -20,6 +20,7 @@ workspace "Kanto"
 	IncludeDir["Glad"] = "Kanto/vendor/Glad/include"
 	IncludeDir["ImGui"] = "Kanto/vendor/ImGui"
 	IncludeDir["glm"] = "Kanto/vendor/glm"
+	IncludeDir["stb_image"] = "Kanto/vendor/stb_image"
 
 	--this somehow links the glfw premake5.lua to this file, kind of like #include
 	--group = folder in visual studio
@@ -51,7 +52,9 @@ workspace "Kanto"
 			"%{prj.name}/src/**.h",
 			"%{prj.name}/src/**.cpp",
 			"%{prj.name}/vendor/glm/glm/**.hpp", --not really needed as this is a header only lib, but let's stay consistent
-			"%{prj.name}/vendor/glm/glm/**.inl" --inline and template stuff here
+			"%{prj.name}/vendor/glm/glm/**.inl", --inline and template stuff here
+			"%{prj.name}/vendor/stb_image/**.h",
+			"%{prj.name}/vendor/stb_image/**.cpp"
 		}
 
 		includedirs
@@ -61,7 +64,8 @@ workspace "Kanto"
 			"%{IncludeDir.GLFW}",
 			"%{IncludeDir.Glad}",
 			"%{IncludeDir.ImGui}",
-			"%{IncludeDir.glm}"
+			"%{IncludeDir.glm}",
+			"%{IncludeDir.stb_image}"
 		}
 
 		links
