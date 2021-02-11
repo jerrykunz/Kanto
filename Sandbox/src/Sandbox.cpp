@@ -21,7 +21,7 @@
 class ExampleLayer : public Kanto::Layer
 {
 public:
-	ExampleLayer() : Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+	ExampleLayer() : Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
 		m_VertexArray.reset(Kanto::VertexArray::Create());
 
@@ -155,47 +155,21 @@ public:
 
 	void OnUpdate(Kanto::Timestep ts) override
 	{
-		if (Kanto::Input::IsKeyPressed(KN_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-		else if (Kanto::Input::IsKeyPressed(KN_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed * ts;
+		// Update
+		m_CameraController.OnUpdate(ts);
 
-		if (Kanto::Input::IsKeyPressed(KN_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed * ts;
-		else if (Kanto::Input::IsKeyPressed(KN_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-
-		if (Kanto::Input::IsKeyPressed(KN_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed * ts;
-		if (Kanto::Input::IsKeyPressed(KN_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;
-
-
-		if (Kanto::Input::IsKeyPressed(KN_KEY_J))
-			m_SquarePos.x -= m_SquareSpeed * ts;
-		else if (Kanto::Input::IsKeyPressed(KN_KEY_L))
-			m_SquarePos.x += m_SquareSpeed * ts;
-
-		if (Kanto::Input::IsKeyPressed(KN_KEY_I))
-			m_SquarePos.y += m_SquareSpeed * ts;
-		else if (Kanto::Input::IsKeyPressed(KN_KEY_K))
-			m_SquarePos.y -= m_SquareSpeed * ts;
-
-
+		// Render
 		Kanto::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Kanto::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-		Kanto::Renderer::BeginScene(m_Camera);
+		Kanto::Renderer::BeginScene(m_CameraController.GetCamera());
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
 		std::dynamic_pointer_cast<Kanto::OpenGLShader>(m_FlatColorShader)->Bind();
 		std::dynamic_pointer_cast<Kanto::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
 
-		glm::mat4 transform = glm::translate(glm::mat4(1.0f), m_SquarePos);
+		//glm::mat4 transform = glm::translate(glm::mat4(1.0f), m_SquarePos);
 		//Kanto::Renderer::Submit(m_BlueShader, m_SquareVA, transform);
 
 		for (int y = 0; y < 20; y++)
@@ -225,15 +199,9 @@ public:
 		Kanto::Renderer::EndScene();
 	}
 
-	void OnEvent(Kanto::Event& event) override
+	void OnEvent(Kanto::Event& e) override
 	{
-		/*if (event.GetEventType() == Kanto::EventType::KeyPressed)
-		{
-			Kanto::KeyPressedEvent& e = (Kanto::KeyPressedEvent&)event;
-			if (e.GetKeyCode() == KN_KEY_TAB)
-				KN_TRACE("Tab key is pressed (event)!");
-			KN_TRACE("{0}", (char)e.GetKeyCode());
-		}*/
+		m_CameraController.OnEvent(e);
 	}
 
 	private:
@@ -246,15 +214,7 @@ public:
 
 		Kanto::Ref<Kanto::Texture2D> m_Texture, m_ChernoLogoTexture;
 
-		Kanto::OrthographicCamera m_Camera;
-		glm::vec3 m_CameraPosition;
-		float m_CameraMoveSpeed = 5.0f;
-
-		glm::vec3 m_SquarePos = { 0.0f, 0.0f, 0.0f };
-		float m_SquareSpeed = 3.5f;
-
-		float m_CameraRotation = 0.0f;
-		float m_CameraRotationSpeed = 180.0f;
+		Kanto::OrthographicCameraController m_CameraController;
 
 		glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };

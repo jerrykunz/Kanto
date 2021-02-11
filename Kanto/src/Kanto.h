@@ -11,6 +11,7 @@
 #include "Kanto/Input.h"
 #include "Kanto/KeyCodes.h"
 #include "Kanto/MouseButtonCodes.h"
+#include "Kanto/OrthographicCameraController.h"
 
 #include "Kanto/Core/Timestep.h"
 
