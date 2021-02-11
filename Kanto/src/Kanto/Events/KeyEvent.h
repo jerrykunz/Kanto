@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Kanto/Events/Event.h"
-#include "Kanto/Core.h"
+#include "Kanto/Core/Core.h"
 
 namespace Kanto {
 

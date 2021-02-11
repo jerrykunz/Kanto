@@ -1,5 +1,5 @@
 #pragma once
-#include "Kanto/Log.h" //needed to make asserts work, KN_CORE_ERROR is undefined for whatever reason without this. All other asserts are in .cpp with knpch helping
+#include "Kanto/Core/Log.h" //needed to make asserts work, KN_CORE_ERROR is undefined for whatever reason without this. All other asserts are in .cpp with knpch helping
 //another thing is core.h is not included but assert still works
 
 namespace Kanto {

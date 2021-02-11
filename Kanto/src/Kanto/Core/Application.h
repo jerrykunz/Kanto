@@ -1,10 +1,10 @@
 #pragma once
-#include <Kanto/Core.h>
-#include "Kanto/LayerStack.h"
+#include <Kanto/Core/Core.h>
+#include "Kanto/Core/LayerStack.h"
 #include <Kanto/Events/Event.h>
 #include "Kanto/Events/ApplicationEvent.h"
 #include "Kanto/ImGui/ImGuiLayer.h"
-#include "Window.h"
+#include "Kanto/Core/Window.h"
 
 
 namespace Kanto

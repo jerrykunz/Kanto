@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Kanto/Window.h"
+#include "Kanto/Core/Window.h"
 #include "Kanto/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

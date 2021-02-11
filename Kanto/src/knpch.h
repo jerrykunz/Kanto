@@ -14,7 +14,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Kanto/Log.h"
+#include "Kanto/Core/Log.h"
 
 #ifdef KN_PLATFORM_WINDOWS
 	#include "Windows.h"

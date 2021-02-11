@@ -1,7 +1,7 @@
 #include "knpch.h"
 #include "WindowsInput.h"
 
-#include "Kanto/Application.h"
+#include "Kanto/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Kanto {

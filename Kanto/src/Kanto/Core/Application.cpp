@@ -1,8 +1,8 @@
 #include "knpch.h"
-#include "Kanto/Application.h"
+#include "Kanto/Core/Application.h"
 #include "Kanto/Events/ApplicationEvent.h"
-#include "Input.h"
-#include "Kanto/Log.h"
+#include "Kanto/Core/Input.h"
+#include "Kanto/Core/Log.h"
 
 #include "Kanto/Renderer/Renderer.h"
 

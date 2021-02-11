@@ -4,20 +4,20 @@
 
 
 #include <stdio.h>
-#include "Kanto/Application.h"
-#include "Kanto/Log.h"
-#include "Kanto/Layer.h"
+#include "Kanto/Core/Application.h"
+#include "Kanto/Core/Log.h"
+#include "Kanto/Core/Layer.h"
 #include "Kanto/ImGui/ImGuiLayer.h"
-#include "Kanto/Input.h"
-#include "Kanto/KeyCodes.h"
-#include "Kanto/MouseButtonCodes.h"
-#include "Kanto/OrthographicCameraController.h"
+#include "Kanto/Core/Input.h"
+#include "Kanto/Core/KeyCodes.h"
+#include "Kanto/Core/MouseButtonCodes.h"
+#include "Kanto/Renderer/OrthographicCameraController.h"
 
 #include "Kanto/Core/Timestep.h"
 
 
 // -Entrypoint-----
-#include "Kanto/Entrypoint.h"
+#include "Kanto/Core/Entrypoint.h"
 // ----------------
 
 // ---Renderer------------------------

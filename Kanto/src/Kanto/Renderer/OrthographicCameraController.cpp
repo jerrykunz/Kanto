@@ -1,8 +1,8 @@
 #include "knpch.h"
 #include "OrthographicCameraController.h"
 
-#include "Kanto/Input.h"
-#include "Kanto/KeyCodes.h"
+#include "Kanto/Core/Input.h"
+#include "Kanto/Core/KeyCodes.h"
 
 namespace Kanto {
 

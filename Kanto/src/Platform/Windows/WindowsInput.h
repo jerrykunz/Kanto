@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Kanto/Input.h"
+#include "Kanto/Core/Input.h"
 
 namespace Kanto {
 
