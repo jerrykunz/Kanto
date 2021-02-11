@@ -1,7 +1,7 @@
 #include "knpch.h"
-#include "Texture.h"
+#include "Kanto/Renderer/Texture.h"
 
-#include "Renderer.h"
+#include "Kanto/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLTexture.h"
 
 namespace Kanto {

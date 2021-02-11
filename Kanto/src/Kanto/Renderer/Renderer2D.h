@@ -1,7 +1,7 @@
 #pragma once
 
-#include "OrthographicCamera.h"
-#include "Texture.h"
+#include "Kanto/Renderer/OrthographicCamera.h"
+#include "Kanto/Renderer/Texture.h"
 
 namespace Kanto {
 

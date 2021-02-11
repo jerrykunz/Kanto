@@ -44,20 +44,6 @@
 #endif // End of platform detection
 
 
-// DLL support
-#ifdef KN_PLATFORM_WINDOWS
-#if KN_DYNAMIC_LINK
-#ifdef KN_BUILD_DLL
-#define KANTO_API __declspec(dllexport)
-#else
-#define KANTO_API __declspec(dllimport)
-#endif
-#else
-#define KANTO_API
-#endif
-#else
-#error Kanto only supports Windows!
-#endif // End of DLL support
 
 #ifdef KN_DEBUG
 #define KN_ENABLE_ASSERTS

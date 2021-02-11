@@ -1,8 +1,7 @@
 #include <Kanto.h>
 #include <Kanto/Core/EntryPoint.h>
 
-#include "Platform/OpenGL/OpenGLShader.h"
-#include  "ImGui/imgui.h"
+#include  <ImGui/imgui.h>
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -36,8 +35,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		Kanto::Ref<Kanto::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(Kanto::VertexBuffer::Create(vertices, sizeof(vertices)));
+		Kanto::Ref<Kanto::VertexBuffer> vertexBuffer = Kanto::VertexBuffer::Create(vertices, sizeof(vertices));
 		Kanto::BufferLayout layout = {
 			{ Kanto::ShaderDataType::Float3, "a_Position" },
 			{ Kanto::ShaderDataType::Float4, "a_Color" }
@@ -46,8 +44,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		Kanto::Ref<Kanto::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Kanto::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		Kanto::Ref<Kanto::IndexBuffer> indexBuffer = Kanto::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 
@@ -62,8 +59,7 @@ public:
 			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		Kanto::Ref<Kanto::VertexBuffer> squareVB;
-		squareVB.reset(Kanto::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		Kanto::Ref<Kanto::VertexBuffer> squareVB = Kanto::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 		squareVB->SetLayout({
 			{ Kanto::ShaderDataType::Float3, "a_Position" },
 			{ Kanto::ShaderDataType::Float2, "a_TexCoord" }
@@ -71,8 +67,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		Kanto::Ref<Kanto::IndexBuffer> squareIB;
-		squareIB.reset(Kanto::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		Kanto::Ref<Kanto::IndexBuffer> squareIB = Kanto::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 
@@ -146,8 +141,8 @@ public:
 		m_Texture = Kanto::Texture2D::Create("res/textures/Checkerboard.png");
 		m_ChernoLogoTexture = Kanto::Texture2D::Create("res/textures/ChernoLogo.png");
 
-		std::dynamic_pointer_cast<Kanto::OpenGLShader>(textureShader)->Bind();
-		std::dynamic_pointer_cast<Kanto::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
+		textureShader->Bind();
+		textureShader->SetInt("u_Texture", 0);
 	}
 
 	virtual void OnImGuiRender() override
@@ -170,8 +165,8 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-		std::dynamic_pointer_cast<Kanto::OpenGLShader>(m_FlatColorShader)->Bind();
-		std::dynamic_pointer_cast<Kanto::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+		m_FlatColorShader->Bind();
+		m_FlatColorShader->SetFloat3("u_Color", m_SquareColor);
 
 		//glm::mat4 transform = glm::translate(glm::mat4(1.0f), m_SquarePos);
 		//Kanto::Renderer::Submit(m_BlueShader, m_SquareVA, transform);
@@ -196,7 +191,7 @@ public:
 		Kanto::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		// Triangle
-		// Hazel::Renderer::Submit(m_Shader, m_VertexArray);
+		// Kanto::Renderer::Submit(m_Shader, m_VertexArray);
 
 
 

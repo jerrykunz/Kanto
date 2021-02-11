@@ -1,10 +1,10 @@
 #include "knpch.h"
-#include "RenderCommand.h"
+#include "Kanto/Renderer/RenderCommand.h"
 
 #include "Platform/OpenGL/OpenGLRendererAPI.h"
 
 namespace Kanto {
 
-	Scope<RendererAPI> RenderCommand::s_RendererAPI = CreateScope<OpenGLRendererAPI>();
+	Scope<RendererAPI> RenderCommand::s_RendererAPI = RendererAPI::Create();
 
 }

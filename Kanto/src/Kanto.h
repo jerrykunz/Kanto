@@ -4,6 +4,7 @@
 
 
 #include <stdio.h>
+#include "Kanto/Core/Core.h"
 #include "Kanto/Core/Application.h"
 #include "Kanto/Core/Log.h"
 #include "Kanto/Core/Layer.h"

@@ -1,13 +1,13 @@
 #pragma once
 
 #include "Kanto/Core/Core.h"
-#include "Layer.h"
+#include "Kanto/Core/Layer.h"
 
 #include <vector>
 
 namespace Kanto {
 
-	class KANTO_API LayerStack
+	class LayerStack
 	{
 	public:
 		LayerStack();

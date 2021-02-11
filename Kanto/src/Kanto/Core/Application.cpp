@@ -11,16 +11,14 @@
 namespace Kanto
 {
 
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
-
 	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
 	{
 		KN_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
-		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+		m_Window = Window::Create();
+		m_Window->SetEventCallback(KN_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
 
@@ -30,6 +28,7 @@ namespace Kanto
 
 	Application::~Application()
 	{
+		Renderer::Shutdown();
 	}
 
 	void Application::PushLayer(Layer* layer)
@@ -48,8 +47,8 @@ namespace Kanto
 	{
 		EventDispatcher dispatcher(e);
 		//if event e is of the type WindowCloseEvent, we execute this function and set it to handled
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClosed));
-		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
+		dispatcher.Dispatch<WindowCloseEvent>(KN_BIND_EVENT_FN(Application::OnWindowClosed));
+		dispatcher.Dispatch<WindowResizeEvent>(KN_BIND_EVENT_FN(Application::OnWindowResize));
 
 		KN_CORE_TRACE("{0}", e);
 
