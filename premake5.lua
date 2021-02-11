@@ -91,7 +91,6 @@ workspace "Kanto"
 
 			defines
 			{
-				"KN_PLATFORM_WINDOWS",
 				"KN_BUILD_DLL",
 				"GLFW_INCLUDE_NONE" -- so we don't include any OPENGL headers while we initialize glfw, so glad works better
 			}
@@ -155,10 +154,6 @@ workspace "Kanto"
 		filter "system:windows"		
 			systemversion "latest"
 
-			defines
-			{
-				"KN_PLATFORM_WINDOWS"
-			}
 
 		filter "configurations:Debug"
 			defines "KN_DEBUG"
