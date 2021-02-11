@@ -18,6 +18,7 @@
 
 // ---Renderer------------------------
 #include "Kanto/Renderer/Renderer.h"
+#include "Kanto/Renderer/Renderer2D.h"
 #include "Kanto/Renderer/RenderCommand.h"
 
 #include "Kanto/Renderer/Buffer.h"
