@@ -1,9 +1,13 @@
 #include <Kanto.h>
+#include <Kanto/Core/EntryPoint.h>
+
 #include "Platform/OpenGL/OpenGLShader.h"
 #include  "ImGui/imgui.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
+#include "Sandbox2D.h"
 
 
 //
@@ -23,7 +27,7 @@ class ExampleLayer : public Kanto::Layer
 public:
 	ExampleLayer() : Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
-		m_VertexArray.reset(Kanto::VertexArray::Create());
+		m_VertexArray = Kanto::VertexArray::Create();
 
 		float vertices[3 * 7] =
 		{
@@ -49,7 +53,7 @@ public:
 
 		//SQUARE
 
-		m_SquareVA.reset(Kanto::VertexArray::Create());
+		m_SquareVA = Kanto::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -225,8 +229,8 @@ class Sandbox : public Kanto::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
-		//PushOverlay(new Kanto::ImGuiLayer());
+		// PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}	
 
 	~Sandbox()

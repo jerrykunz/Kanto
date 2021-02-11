@@ -16,10 +16,6 @@
 #include "Kanto/Core/Timestep.h"
 
 
-// -Entrypoint-----
-#include "Kanto/Core/Entrypoint.h"
-// ----------------
-
 // ---Renderer------------------------
 #include "Kanto/Renderer/Renderer.h"
 #include "Kanto/Renderer/RenderCommand.h"
