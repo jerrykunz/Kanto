@@ -5,7 +5,12 @@
 #include "Kanto/Events/MouseEvent.h"
 #include "Kanto/Events/KeyEvent.h"
 
+#include "Kanto/Renderer/Renderer.h"
+
 #include "Platform/OpenGL/OpenGLContext.h"
+
+
+#include "Kanto/Core/Input.h"
 
 namespace Kanto {
 
@@ -14,11 +19,6 @@ namespace Kanto {
 	static void GLFWErrorCallback(int error, const char* description)
 	{
 		KN_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
-	}
-
-	Scope<Window> Window::Create(const WindowProps& props)
-	{
-		return CreateScope<WindowsWindow>(props);
 	}
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
@@ -52,6 +52,10 @@ namespace Kanto {
 
 		{
 			KN_PROFILE_SCOPE("glfwCreateWindow");
+			#if defined(KN_DEBUG)
+				if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
+					glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
+			#endif
 			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 			++s_GLFWWindowCount;
 		}
@@ -91,19 +95,19 @@ namespace Kanto {
 			{
 			case GLFW_PRESS:
 			{
-				KeyPressedEvent event(key, 0);
+				KeyPressedEvent event(static_cast<KeyCode>(key), 0);
 				data.EventCallback(event);
 				break;
 			}
 			case GLFW_RELEASE:
 			{
-				KeyReleasedEvent event(key);
+				KeyReleasedEvent event(static_cast<KeyCode>(key));
 				data.EventCallback(event);
 				break;
 			}
 			case GLFW_REPEAT:
 			{
-				KeyPressedEvent event(key, 1);
+				KeyPressedEvent event(static_cast<KeyCode>(key), 1);
 				data.EventCallback(event);
 				break;
 			}
@@ -114,7 +118,7 @@ namespace Kanto {
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-			KeyTypedEvent event(keycode);
+			KeyTypedEvent event(static_cast<KeyCode>(keycode));
 			data.EventCallback(event);
 		});
 
@@ -126,13 +130,13 @@ namespace Kanto {
 			{
 			case GLFW_PRESS:
 			{
-				MouseButtonPressedEvent event(button);
+				MouseButtonReleasedEvent event(static_cast<MouseCode>(button));
 				data.EventCallback(event);
 				break;
 			}
 			case GLFW_RELEASE:
 			{
-				MouseButtonReleasedEvent event(button);
+				MouseButtonReleasedEvent event(static_cast<MouseCode>(button));
 				data.EventCallback(event);
 				break;
 			}
@@ -143,7 +147,7 @@ namespace Kanto {
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-			KeyTypedEvent event(keycode);
+			KeyTypedEvent event(static_cast<KeyCode>(keycode));
 			data.EventCallback(event);
 		});
 

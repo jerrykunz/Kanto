@@ -6,7 +6,8 @@
 obj/
 !vendor/bin/premake/
 
-
+# Hazel files
+*.log
 
 # Visual Studio files and folder
 .vs/

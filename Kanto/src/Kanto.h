@@ -11,7 +11,7 @@
 #include "Kanto/ImGui/ImGuiLayer.h"
 #include "Kanto/Core/Input.h"
 #include "Kanto/Core/KeyCodes.h"
-#include "Kanto/Core/MouseButtonCodes.h"
+#include "Kanto/Core/MouseCodes.h"
 #include "Kanto/Renderer/OrthographicCameraController.h"
 
 #include "Kanto/Core/Timestep.h"

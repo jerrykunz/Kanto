@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Kanto/Events/Event.h"
+#include "Kanto/Core/Input.h"
 #include "Kanto/Core/Core.h"
 
 namespace Kanto {
@@ -9,21 +10,21 @@ namespace Kanto {
 	{
 		public:
 
-		inline int GetKeyCode() const { return m_KeyCode; }
+		inline KeyCode GetKeyCode() const { return m_KeyCode; }
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 
 		protected:
-		KeyEvent(int keycode)
+		KeyEvent(KeyCode keycode)
 			: m_KeyCode(keycode) {}
 
-		int m_KeyCode;
+		KeyCode m_KeyCode;
 	};
 
 	class KeyPressedEvent : public KeyEvent
 	{
 		public:
 
-		KeyPressedEvent(int keycode, int repeatCount)
+		KeyPressedEvent(KeyCode keycode, int repeatCount)
 			: KeyEvent(keycode), m_RepeatCount(repeatCount) {}
 
 		uint16_t GetRepeatCount() const { return m_RepeatCount; }
@@ -46,7 +47,7 @@ namespace Kanto {
 	{
 		public:
 
-		KeyReleasedEvent(int keycode)
+		KeyReleasedEvent(KeyCode keycode)
 			: KeyEvent(keycode) {}
 
 		std::string ToString() const override
@@ -62,7 +63,7 @@ namespace Kanto {
 	class KeyTypedEvent : public KeyEvent
 	{
 		public:
-		KeyTypedEvent(int keycode)
+		KeyTypedEvent(KeyCode keycode)
 			: KeyEvent(keycode) {}
 
 		std::string ToString() const override

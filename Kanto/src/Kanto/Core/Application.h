@@ -7,6 +7,8 @@
 #include "Kanto/Core/Window.h"
 
 
+int main(int argc, char** argv);
+
 namespace Kanto
 {
 	class Application
@@ -14,7 +16,7 @@ namespace Kanto
 	public:
 		Application();
 		virtual ~Application();
-		void Run();
+		
 		void OnEvent(Event& e);
 		
 		void PushLayer(Layer* layer);
@@ -25,6 +27,7 @@ namespace Kanto
 		inline static Application& Get() { return *s_Instance; }
 
 	private:
+		void Run();
 		bool OnWindowClosed(WindowCloseEvent& x);
 		bool OnWindowResize(WindowResizeEvent& e);
 
@@ -37,6 +40,7 @@ namespace Kanto
 		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
+		friend int ::main(int argc, char** argv);
 	};
 
 	//to be defined in client
