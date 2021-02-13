@@ -9,14 +9,17 @@ extern Kanto::Application* Kanto::CreateApplication();
 int main(int argc, char** argv)
 {
 	Kanto::Log::Init();
-
-	KN_WARN("Initialized log!");
-	int a = 5;
-	KN_INFO("number is {0}", a);
-
+	KN_PROFILE_BEGIN_SESSION("Startup", "HazelProfile-Startup.json");
 	auto app = Kanto::CreateApplication();
+	KN_PROFILE_END_SESSION();
+
+	KN_PROFILE_BEGIN_SESSION("Runtime", "HazelProfile-Runtime.json");
 	app->Run();
+	KN_PROFILE_END_SESSION();
+
+	KN_PROFILE_BEGIN_SESSION("Startup", "HazelProfile-Shutdown.json");
 	delete app;
+	KN_PROFILE_END_SESSION();
 }
 
 

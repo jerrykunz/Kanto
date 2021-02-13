@@ -23,16 +23,19 @@ namespace Kanto {
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
+		KN_PROFILE_FUNCTION();
 		Init(props);
 	}
 
 	WindowsWindow::~WindowsWindow()
 	{
+		KN_PROFILE_FUNCTION();
 		Shutdown();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)
 	{
+		KN_PROFILE_FUNCTION();
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -41,13 +44,17 @@ namespace Kanto {
 
 		if (s_GLFWWindowCount == 0)
 		{
+			KN_PROFILE_SCOPE("glfwInit");
 			int success = glfwInit();
 			KN_CORE_ASSERT(success, "Could not initialize GLFW!");			
 			glfwSetErrorCallback(GLFWErrorCallback);
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		s_GLFWWindowCount++;
+		{
+			KN_PROFILE_SCOPE("glfwCreateWindow");
+			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+			++s_GLFWWindowCount;
+		}
 
 		//Rendering API replaced by own API
 		m_Context = GraphicsContext::Create(m_Window);
@@ -158,6 +165,7 @@ namespace Kanto {
 
 	void WindowsWindow::Shutdown()
 	{
+		KN_PROFILE_FUNCTION();
 		glfwDestroyWindow(m_Window);
 		s_GLFWWindowCount--;
 
@@ -169,12 +177,14 @@ namespace Kanto {
 
 	void WindowsWindow::OnUpdate()
 	{
+		KN_PROFILE_FUNCTION();
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)
 	{
+		KN_PROFILE_FUNCTION();
 		if (enabled)
 			glfwSwapInterval(1);
 		else

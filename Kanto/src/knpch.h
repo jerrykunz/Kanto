@@ -15,6 +15,7 @@
 #include <unordered_set>
 
 #include "Kanto/Core/Log.h"
+#include "Kanto/Debug/Instrumentor.h"
 
 #ifdef KN_PLATFORM_WINDOWS
 	#include "Windows.h"

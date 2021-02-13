@@ -15,7 +15,7 @@
 #include "Kanto/Renderer/OrthographicCameraController.h"
 
 #include "Kanto/Core/Timestep.h"
-
+#include "Kanto/Debug/Instrumentor.h"
 
 // ---Renderer------------------------
 #include "Kanto/Renderer/Renderer.h"
