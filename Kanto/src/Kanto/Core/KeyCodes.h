@@ -142,3 +142,131 @@ namespace Kanto
 		return os;
 	}
 }
+
+
+// From glfw3.h
+#define KN_KEY_SPACE           ::Kanto::Key::Space
+#define KN_KEY_APOSTROPHE      ::Kanto::Key::Apostrophe    /* ' */
+#define KN_KEY_COMMA           ::Kanto::Key::Comma         /* , */
+#define KN_KEY_MINUS           ::Kanto::Key::Minus         /* - */
+#define KN_KEY_PERIOD          ::Kanto::Key::Period        /* . */
+#define KN_KEY_SLASH           ::Kanto::Key::Slash         /* / */
+#define KN_KEY_0               ::Kanto::Key::D0
+#define KN_KEY_1               ::Kanto::Key::D1
+#define KN_KEY_2               ::Kanto::Key::D2
+#define KN_KEY_3               ::Kanto::Key::D3
+#define KN_KEY_4               ::Kanto::Key::D4
+#define KN_KEY_5               ::Kanto::Key::D5
+#define KN_KEY_6               ::Kanto::Key::D6
+#define KN_KEY_7               ::Kanto::Key::D7
+#define KN_KEY_8               ::Kanto::Key::D8
+#define KN_KEY_9               ::Kanto::Key::D9
+#define KN_KEY_SEMICOLON       ::Kanto::Key::Semicolon     /* ; */
+#define KN_KEY_EQUAL           ::Kanto::Key::Equal         /* = */
+#define KN_KEY_A               ::Kanto::Key::A
+#define KN_KEY_B               ::Kanto::Key::B
+#define KN_KEY_C               ::Kanto::Key::C
+#define KN_KEY_D               ::Kanto::Key::D
+#define KN_KEY_E               ::Kanto::Key::E
+#define KN_KEY_F               ::Kanto::Key::F
+#define KN_KEY_G               ::Kanto::Key::G
+#define KN_KEY_H               ::Kanto::Key::H
+#define KN_KEY_I               ::Kanto::Key::I
+#define KN_KEY_J               ::Kanto::Key::J
+#define KN_KEY_K               ::Kanto::Key::K
+#define KN_KEY_L               ::Kanto::Key::L
+#define KN_KEY_M               ::Kanto::Key::M
+#define KN_KEY_N               ::Kanto::Key::N
+#define KN_KEY_O               ::Kanto::Key::O
+#define KN_KEY_P               ::Kanto::Key::P
+#define KN_KEY_Q               ::Kanto::Key::Q
+#define KN_KEY_R               ::Kanto::Key::R
+#define KN_KEY_S               ::Kanto::Key::S
+#define KN_KEY_T               ::Kanto::Key::T
+#define KN_KEY_U               ::Kanto::Key::U
+#define KN_KEY_V               ::Kanto::Key::V
+#define KN_KEY_W               ::Kanto::Key::W
+#define KN_KEY_X               ::Kanto::Key::X
+#define KN_KEY_Y               ::Kanto::Key::Y
+#define KN_KEY_Z               ::Kanto::Key::Z
+#define KN_KEY_LEFT_BRACKET    ::Kanto::Key::LeftBracket   /* [ */
+#define KN_KEY_BACKSLASH       ::Kanto::Key::Backslash     /* \ */
+#define KN_KEY_RIGHT_BRACKET   ::Kanto::Key::RightBracket  /* ] */
+#define KN_KEY_GRAVE_ACCENT    ::Kanto::Key::GraveAccent   /* ` */
+#define KN_KEY_WORLD_1         ::Kanto::Key::World1        /* non-US #1 */
+#define KN_KEY_WORLD_2         ::Kanto::Key::World2        /* non-US #2 */
+
+/* Function keys */
+#define KN_KEY_ESCAPE          ::Kanto::Key::Escape
+#define KN_KEY_ENTER           ::Kanto::Key::Enter
+#define KN_KEY_TAB             ::Kanto::Key::Tab
+#define KN_KEY_BACKSPACE       ::Kanto::Key::Backspace
+#define KN_KEY_INSERT          ::Kanto::Key::Insert
+#define KN_KEY_DELETE          ::Kanto::Key::Delete
+#define KN_KEY_RIGHT           ::Kanto::Key::Right
+#define KN_KEY_LEFT            ::Kanto::Key::Left
+#define KN_KEY_DOWN            ::Kanto::Key::Down
+#define KN_KEY_UP              ::Kanto::Key::Up
+#define KN_KEY_PAGE_UP         ::Kanto::Key::PageUp
+#define KN_KEY_PAGE_DOWN       ::Kanto::Key::PageDown
+#define KN_KEY_HOME            ::Kanto::Key::Home
+#define KN_KEY_END             ::Kanto::Key::End
+#define KN_KEY_CAPS_LOCK       ::Kanto::Key::CapsLock
+#define KN_KEY_SCROLL_LOCK     ::Kanto::Key::ScrollLock
+#define KN_KEY_NUM_LOCK        ::Kanto::Key::NumLock
+#define KN_KEY_PRINT_SCREEN    ::Kanto::Key::PrintScreen
+#define KN_KEY_PAUSE           ::Kanto::Key::Pause
+#define KN_KEY_F1              ::Kanto::Key::F1
+#define KN_KEY_F2              ::Kanto::Key::F2
+#define KN_KEY_F3              ::Kanto::Key::F3
+#define KN_KEY_F4              ::Kanto::Key::F4
+#define KN_KEY_F5              ::Kanto::Key::F5
+#define KN_KEY_F6              ::Kanto::Key::F6
+#define KN_KEY_F7              ::Kanto::Key::F7
+#define KN_KEY_F8              ::Kanto::Key::F8
+#define KN_KEY_F9              ::Kanto::Key::F9
+#define KN_KEY_F10             ::Kanto::Key::F10
+#define KN_KEY_F11             ::Kanto::Key::F11
+#define KN_KEY_F12             ::Kanto::Key::F12
+#define KN_KEY_F13             ::Kanto::Key::F13
+#define KN_KEY_F14             ::Kanto::Key::F14
+#define KN_KEY_F15             ::Kanto::Key::F15
+#define KN_KEY_F16             ::Kanto::Key::F16
+#define KN_KEY_F17             ::Kanto::Key::F17
+#define KN_KEY_F18             ::Kanto::Key::F18
+#define KN_KEY_F19             ::Kanto::Key::F19
+#define KN_KEY_F20             ::Kanto::Key::F20
+#define KN_KEY_F21             ::Kanto::Key::F21
+#define KN_KEY_F22             ::Kanto::Key::F22
+#define KN_KEY_F23             ::Kanto::Key::F23
+#define KN_KEY_F24             ::Kanto::Key::F24
+#define KN_KEY_F25             ::Kanto::Key::F25
+
+/* Keypad */
+#define KN_KEY_KP_0            ::Kanto::Key::KP0
+#define KN_KEY_KP_1            ::Kanto::Key::KP1
+#define KN_KEY_KP_2            ::Kanto::Key::KP2
+#define KN_KEY_KP_3            ::Kanto::Key::KP3
+#define KN_KEY_KP_4            ::Kanto::Key::KP4
+#define KN_KEY_KP_5            ::Kanto::Key::KP5
+#define KN_KEY_KP_6            ::Kanto::Key::KP6
+#define KN_KEY_KP_7            ::Kanto::Key::KP7
+#define KN_KEY_KP_8            ::Kanto::Key::KP8
+#define KN_KEY_KP_9            ::Kanto::Key::KP9
+#define KN_KEY_KP_DECIMAL      ::Kanto::Key::KPDecimal
+#define KN_KEY_KP_DIVIDE       ::Kanto::Key::KPDivide
+#define KN_KEY_KP_MULTIPLY     ::Kanto::Key::KPMultiply
+#define KN_KEY_KP_SUBTRACT     ::Kanto::Key::KPSubtract
+#define KN_KEY_KP_ADD          ::Kanto::Key::KPAdd
+#define KN_KEY_KP_ENTER        ::Kanto::Key::KPEnter
+#define KN_KEY_KP_EQUAL        ::Kanto::Key::KPEqual
+
+#define KN_KEY_LEFT_SHIFT      ::Kanto::Key::LeftShift
+#define KN_KEY_LEFT_CONTROL    ::Kanto::Key::LeftControl
+#define KN_KEY_LEFT_ALT        ::Kanto::Key::LeftAlt
+#define KN_KEY_LEFT_SUPER      ::Kanto::Key::LeftSuper
+#define KN_KEY_RIGHT_SHIFT     ::Kanto::Key::RightShift
+#define KN_KEY_RIGHT_CONTROL   ::Kanto::Key::RightControl
+#define KN_KEY_RIGHT_ALT       ::Kanto::Key::RightAlt
+#define KN_KEY_RIGHT_SUPER     ::Kanto::Key::RightSuper
+#define KN_KEY_MENU            ::Kanto::Key::Menu

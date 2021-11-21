@@ -29,15 +29,15 @@ namespace Kanto
 	}
 }
 
-#define HZ_MOUSE_BUTTON_0      ::Kanto::Mouse::Button0
-#define HZ_MOUSE_BUTTON_1      ::Kanto::Mouse::Button1
-#define HZ_MOUSE_BUTTON_2      ::Kanto::Mouse::Button2
-#define HZ_MOUSE_BUTTON_3      ::Kanto::Mouse::Button3
-#define HZ_MOUSE_BUTTON_4      ::Kanto::Mouse::Button4
-#define HZ_MOUSE_BUTTON_5      ::Kanto::Mouse::Button5
-#define HZ_MOUSE_BUTTON_6      ::Kanto::Mouse::Button6
-#define HZ_MOUSE_BUTTON_7      ::Kanto::Mouse::Button7
-#define HZ_MOUSE_BUTTON_LAST   ::Kanto::Mouse::ButtonLast
-#define HZ_MOUSE_BUTTON_LEFT   ::Kanto::Mouse::ButtonLeft
-#define HZ_MOUSE_BUTTON_RIGHT  ::Kanto::Mouse::ButtonRight
-#define HZ_MOUSE_BUTTON_MIDDLE ::Kanto::Mouse::ButtonMiddle
+#define KN_MOUSE_BUTTON_0      ::Kanto::Mouse::Button0
+#define KN_MOUSE_BUTTON_1      ::Kanto::Mouse::Button1
+#define KN_MOUSE_BUTTON_2      ::Kanto::Mouse::Button2
+#define KN_MOUSE_BUTTON_3      ::Kanto::Mouse::Button3
+#define KN_MOUSE_BUTTON_4      ::Kanto::Mouse::Button4
+#define KN_MOUSE_BUTTON_5      ::Kanto::Mouse::Button5
+#define KN_MOUSE_BUTTON_6      ::Kanto::Mouse::Button6
+#define KN_MOUSE_BUTTON_7      ::Kanto::Mouse::Button7
+#define KN_MOUSE_BUTTON_LAST   ::Kanto::Mouse::ButtonLast
+#define KN_MOUSE_BUTTON_LEFT   ::Kanto::Mouse::ButtonLeft
+#define KN_MOUSE_BUTTON_RIGHT  ::Kanto::Mouse::ButtonRight
+#define KN_MOUSE_BUTTON_MIDDLE ::Kanto::Mouse::ButtonMiddle

@@ -109,10 +109,10 @@ ExampleLayer::ExampleLayer()
 
 	m_FlatColorShader = Kanto::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-	auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
+	auto textureShader = m_ShaderLibrary.Load("res/shaders/Texture.glsl");
 
-	m_Texture = Kanto::Texture2D::Create("assets/textures/Checkerboard.png");
-	m_ChernoLogoTexture = Kanto::Texture2D::Create("assets/textures/ChernoLogo.png");
+	m_Texture = Kanto::Texture2D::Create("res/textures/Checkerboard.png");
+	m_ChernoLogoTexture = Kanto::Texture2D::Create("res/textures/ChernoLogo.png");
 
 	textureShader->Bind();
 	textureShader->SetInt("u_Texture", 0);
