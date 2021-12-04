@@ -83,17 +83,18 @@ workspace "Kanto"
 
 		defines
 		{
-			"_CRT_SECURE_NO_WARNINGS"
+			"_CRT_SECURE_NO_WARNINGS",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		filter "system:windows"		
 			systemversion "latest"
 
-			defines
-			{
-				"KN_BUILD_DLL",
-				"GLFW_INCLUDE_NONE" -- so we don't include any OPENGL headers while we initialize glfw, so glad works better
-			}
+			--defines
+			--{
+				--"KN_BUILD_DLL",
+				--"GLFW_INCLUDE_NONE" -- so we don't include any OPENGL headers while we initialize glfw, so glad works better
+			--}
 
 			--no longer necessary as we ditched the dll for static runtime because of performance and warnings on compile
 			--postbuildcommands

@@ -46,12 +46,22 @@
 
 
 #ifdef KN_DEBUG
-#define KN_ENABLE_ASSERTS
+	#if defined(KN_PLATFORM_WINDOWS)
+		#define KN_DEBUGBREAK() __debugbreak()
+	#elif defined(KN_PLATFORM_LINUX)
+		#include <signal.h>
+		#define KN_DEBUGBREAK() raise(SIGTRAP)
+	#else
+		#error "Platform doesn't support debugbreak yet!"
+	#endif
+	#define KN_ENABLE_ASSERTS
+#else
+	#define KN_DEBUGBREAK()
 #endif
 
 #ifdef KN_ENABLE_ASSERTS
-#define KN_ASSERT(x, ...) { if(!(x)) { KN_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
-#define KN_CORE_ASSERT(x, ...) { if(!(x)) { KN_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#define KN_ASSERT(x, ...) { if(!(x)) { KN_ERROR("Assertion Failed: {0}", __VA_ARGS__); KN_DEBUGBREAK(); } }
+#define KN_CORE_ASSERT(x, ...) { if(!(x)) { KN_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); KN_DEBUGBREAK(); } }
 #else
 #define KN_ASSERT(x, ...)
 #define KN_CORE_ASSERT(x, ...)
