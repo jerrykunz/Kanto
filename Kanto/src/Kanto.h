@@ -25,6 +25,7 @@
 #include "Kanto/Renderer/Buffer.h"
 #include "Kanto/Renderer/Shader.h"
 #include "Kanto/Renderer/Texture.h"
+#include "Kanto/Renderer/SubTexture2D.h"
 #include "Kanto/Renderer/VertexArray.h"
 
 #include "Kanto/Renderer/OrthographicCamera.h"
