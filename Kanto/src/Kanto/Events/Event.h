@@ -75,7 +75,7 @@ namespace Kanto {
 		Event& m_Event;
 	};
 
-	std::ostream& operator<<(std::ostream& os, const Event& e)
+	inline std::ostream& operator<<(std::ostream& os, const Event& e)
 	{
 		return os << e.ToString();
 	}

@@ -22,9 +22,9 @@ namespace Kanto
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
 
-		Window& GetWindow() { return *m_Window; }
+		inline Window& GetWindow() { return *m_Window; }
 
-		static Application& Get() { return *s_Instance; }
+		inline static Application& Get() { return *s_Instance; }
 
 	private:
 		void Run();

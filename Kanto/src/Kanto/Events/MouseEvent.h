@@ -59,7 +59,7 @@ namespace Kanto {
 	{
 		public:
 
-		MouseCode GetMouseButton() const { return m_Button; }
+		inline MouseCode GetMouseButton() const { return m_Button; }
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput | EventCategoryMouseButton)
 		
 		protected:
