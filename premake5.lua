@@ -89,7 +89,8 @@ workspace "Kanto"
 
 		filter "system:windows"		
 			systemversion "latest"
-
+			
+			--if problems, check out this and "general cleanup" commit on hazel and kanto
 			--defines
 			--{
 				--"KN_BUILD_DLL",
