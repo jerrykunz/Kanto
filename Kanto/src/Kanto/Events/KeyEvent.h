@@ -10,7 +10,7 @@ namespace Kanto {
 	{
 		public:
 
-		inline KeyCode GetKeyCode() const { return m_KeyCode; }
+		KeyCode GetKeyCode() const { return m_KeyCode; }
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 
 		protected:
