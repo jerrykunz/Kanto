@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Kanto/Core/Core.h"
+#include "Kanto/Core/Base.h"
 #include <utility>
 
 #include "Kanto/Core/KeyCodes.h"

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Kanto/Core/Core.h"
+#include "Kanto/Core/Base.h"
 #include "Kanto/Events/Event.h"
 #include "Kanto/Core/Timestep.h"
 

@@ -2,7 +2,7 @@
 
 #include "Kanto/Events/Event.h"
 #include "Kanto/Core/Input.h"
-//#include "Kanto/Core/Core.h"
+//#include "Kanto/Core/Base.h"
 
 namespace Kanto {
 

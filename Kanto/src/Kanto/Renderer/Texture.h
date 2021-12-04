@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Kanto/Core/Core.h"
+#include "Kanto/Core/Base.h"
 
 namespace Kanto {
 

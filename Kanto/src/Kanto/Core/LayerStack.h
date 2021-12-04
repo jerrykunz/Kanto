@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Kanto/Core/Core.h"
+#include "Kanto/Core/Base.h"
 #include "Kanto/Core/Layer.h"
 
 #include <vector>

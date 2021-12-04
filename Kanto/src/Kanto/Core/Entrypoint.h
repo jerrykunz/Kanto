@@ -1,5 +1,5 @@
 #pragma once
-#include "Kanto/Core/Core.h"
+#include "Kanto/Core/Base.h"
 
 #ifdef KN_PLATFORM_WINDOWS
 
